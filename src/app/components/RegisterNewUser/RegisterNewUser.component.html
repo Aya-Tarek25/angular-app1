@@ -1,0 +1,116 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="register()">
+    <div class="mb-3">
+      <label class="form-label">User Name</label>
+      <input type="text" formControlName="name" class="form-control"
+      [ngClass]="{
+        'is-invalid': form.controls['name'].invalid && form.controls['name'].touched,
+        'is-valid': form.controls['name'].valid && form.controls['name'].touched,
+        }" >
+      <div *ngIf="form.controls['name'].invalid && form.controls['name'].touched" class="invalid-feedback">
+        <span *ngIf="form.controls['name'].hasError('required')">
+          Please Provide a valid name
+        </span>
+        <span *ngIf="form.controls['name'].hasError('minlength')">
+          must contain more than 3 letters.
+        </span>
+      </div>
+      <div *ngIf="form.controls['name'].valid && form.controls['name'].touched"  class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">email</label>
+      <input type="text" formControlName="email" class="form-control"  [ngClass]="{
+        'is-invalid': form.controls['email'].invalid && form.controls['email'].touched,
+        'is-valid': form.controls['email'].valid && form.controls['email'].touched,
+        }" >
+      <div *ngIf="form.controls['email'].invalid && form.controls['email'].touched" class="invalid-feedback">
+        <span *ngIf="form.controls['email'].hasError('required')">
+          Please Provide an email
+        </span>
+        <span *ngIf="form.controls['email'].hasError('minlength')">
+          Product price must more than 10 pound.
+        </span>
+        <span *ngIf="form.controls['email'].hasError('pattern')">
+          Please Provide a correct email
+        </span>
+      </div>
+      <div *ngIf="form.controls['email'].valid && form.controls['email'].touched"  class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">Phone Number</label>
+      <input type="number" formControlName="phoneNumber" class="form-control"  [ngClass]="{
+        'is-invalid': form.controls['phoneNumber'].invalid && form.controls['phoneNumber'].touched,
+        'is-valid': form.controls['phoneNumber'].valid && form.controls['phoneNumber'].touched,
+        }" >
+        <div *ngIf="form.controls['phoneNumber'].invalid && form.controls['phoneNumber'].touched" class="invalid-feedback">
+          <span *ngIf="form.controls['phoneNumber'].hasError('required')">
+            Please Provide a correct Phone Number
+          </span>
+          <span *ngIf="form.controls['phoneNumber'].hasError('min')">
+            Product quantity must be more than 1
+          </span>
+        </div>
+        <div *ngIf="form.controls['phoneNumber'].valid && form.controls['phoneNumber'].touched"  class="valid-feedback">
+          Looks good!
+        </div>
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">Password</label>
+      <input type="text" formControlName="password" class="form-control"  [ngClass]="{
+        'is-invalid': form.controls['password'].invalid && form.controls['password'].touched,
+        'is-valid': form.controls['password'].valid && form.controls['password'].touched,
+        }" >
+      <div *ngIf="form.controls['password'].invalid && form.controls['password'].touched" class="invalid-feedback">
+        <span *ngIf="form.controls['password'].hasError('required')">
+          Please Provide an Password
+        </span>
+        <span *ngIf="form.controls['password'].hasError('minlength')">
+          Product price must more than 10 pound.
+        </span>
+        <span *ngIf="form.controls['password'].hasError('pattern')">
+          Please Provide a correct Password
+        </span>
+      </div>
+      <div *ngIf="form.controls['password'].valid && form.controls['password'].touched"  class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <!-- <div class="mb-3">
+      <label  class="form-label">Product Description</label>
+      <textarea class="form-control" formControlName="description"
+      [ngClass]="{
+        'is-invalid': form.controls['description'].invalid && form.controls['description'].touched,
+        'is-valid': form.controls['description'].valid && form.controls['description'].touched,
+        }" 
+      ></textarea>
+      <div *ngIf="form.controls['description'].invalid && form.controls['description'].touched" class="invalid-feedback">
+        <span *ngIf="form.controls['description'].hasError('required')">
+          Please Provide a correct Product description
+        </span>
+        <span *ngIf="form.controls['description'].hasError('minlength')">
+          Product description must contain more than 10 letters.
+        </span>
+      </div>
+      <div *ngIf="form.controls['description'].valid && form.controls['description'].touched"  class="valid-feedback">
+        Looks good!
+      </div>
+    </div> -->
+    <!-- <div class="mb-3">
+      <label for="">Upload File</label>
+      <input type="file" class="form-control"  #imginput (change)="chooseImage(imginput)"> 
+  </div> -->
+  <!-- <div class="mb-3" formArrayName="colors">
+    <label for="">Product Colors</label> -->
+    <!-- <div class="row" *ngFor="let item of colorArray.controls;let i= index">
+      <input type="color" [formControlName]="i" class="form-control col" > 
+      <button type="button" class="btn btn-danger col" (click)="removeColor(i)">X</button>
+    </div>
+    <button type="button" class="btn btn-primary col" (click)="addColor()">Add Color</button>
+  </div> -->
+    <button type="submit" [disabled]="form.invalid" class="btn btn-outline-success">Register</button>
+  </form>
+  </div>

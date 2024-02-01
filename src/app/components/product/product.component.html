@@ -1,0 +1,44 @@
+<!-- <p>product works!</p> -->
+
+  <!-- <div class="card" *ngFor="let product of Data.Products">
+    <h5 class="card-header"></h5>
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">Price: {{ product.price}}</p>
+        <p>Quantity: {{ product.quantity }}</p>
+       <p>CategoryId: {{ product.categoryID }}</p>
+       <img [src]="product.imgURL" alt="{{ product.name }}">
+     
+    </div>
+   </div> 
+<div class="row " style="margin: auto !important;;">
+  <div class="card col-m" style="width: 18rem; margin-left: 15px !important ;margin-top:15px !important; " *ngFor="let product of Data.Products">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">Price: {{ product.price}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Quantity: {{ product.quantity }}</li>
+      <li class="list-group-item">CategoryId:{{ product.categoryID }}</li>
+      <app-rate [val]=" 3 "></app-rate>
+      <li class="list-group-item"> <img [src]="product.imgURL" alt="{{ product.name }}"></li>
+    </ul>
+  </div>
+  </div> 
+-->
+<div class="row">
+
+    <div class="card col-3"  *ngFor="let item of p">
+        <div class="card-body">
+            <img [src]="item.Img" [alt]="item.Name" class="card-img-top" alt="...">
+            <h5 class="card-title">{{item.Name}}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Price {{item.Price | currency }}</h6>
+           <app-rate [val]="item.rate"  ></app-rate>
+           <button  [routerLink]="['/detail',item.ID]"   class="btn btn-outline-success">See More</button>
+            <button class="btn btn-outline-success m-2" type="button" (click)="add(item)">Add to Cart</button>
+
+        </div>
+    </div>
+</div> 
+
+

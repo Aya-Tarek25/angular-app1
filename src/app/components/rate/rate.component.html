@@ -1,0 +1,9 @@
+<ng-container [ngSwitch]="val">
+    <span  *ngSwitchCase="0">Not Raviewd</span>
+    <span  *ngSwitchCase="1">*</span>
+    <span  *ngSwitchCase="2">**</span>
+    <span  *ngSwitchCase="3">***</span>
+    <span  *ngSwitchCase="4"> ****</span>
+    <span  *ngSwitchCase="5"> *****</span>
+    <input type="number" #inp (keyup.enter)="input(inp.value)"/>
+</ng-container>

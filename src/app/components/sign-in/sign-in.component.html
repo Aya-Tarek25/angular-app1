@@ -1,0 +1,50 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="sign()">
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="text" formControlName="email" class="form-control" [ngClass]="{
+        'is-invalid': form.controls['email'].invalid && form.controls['email'].touched,
+        'is-valid': form.controls['email'].valid && form.controls['email'].touched,
+      }">
+      <div *ngIf="form.controls['email'].invalid && form.controls['email'].touched" class="invalid-feedback">
+        <span *ngIf="form.controls['email'].hasError('required')">
+          Please provide an email
+        </span>
+        <span *ngIf="form.controls['email'].hasError('minlength')">
+          Email must have a minimum length.
+        </span>
+        <span *ngIf="form.controls['email'].hasError('pattern')">
+          Please provide a correct email
+        </span>
+      </div>
+      <div *ngIf="form.controls['email'].valid && form.controls['email'].touched" class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" formControlName="password" class="form-control" [ngClass]="{
+        'is-invalid': form.controls['password'].invalid && form.controls['password'].touched,
+        'is-valid': form.controls['password'].valid && form.controls['password'].touched,
+      }">
+      <div *ngIf="form.controls['password'].invalid && form.controls['password'].touched" class="invalid-feedback">
+        <span *ngIf="form.controls['password'].hasError('required')">
+          Please provide a password
+        </span>
+        <span *ngIf="form.controls['password'].hasError('minlength')">
+          Password must have a minimum length.
+        </span>
+        <span *ngIf="form.controls['password'].hasError('pattern')">
+          Please provide a correct password
+        </span>
+      </div>
+      <div *ngIf="form.controls['password'].valid && form.controls['password'].touched" class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid" class="btn btn-outline-success">Sign In</button>
+    <!-- <a [routerLink]="['/AddUser','/home']">Register </a> -->
+  </form>
+</div>

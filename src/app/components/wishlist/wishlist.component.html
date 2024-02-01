@@ -1,0 +1,23 @@
+<div class="container">
+  <!-- <button class="btn btn-outline-success m-x" routerLink="/add-product">Add Product</button> -->
+    <div class="row">
+      <div *ngIf="list && list.length > 0; else noItems">
+        <div class="card col-4"  *ngFor="let item of list">
+            <div class="card-body">
+            <img [src]="item.imgURL" [alt]="item.name" class="card-img-top" alt="...">
+            <h5 class="card-title">{{item.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Price {{item.price | currency }}</h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Available {{item.quantity }}</h6>
+            <button [routerLink]="['/details',item._id]" class="btn btn-outline-dark">See More</button>
+            <button class="btn " (click)="removeFromWishlist(item)">
+              <i style="color: red;"class="bi bi-trash-fill"></i>
+            </button>
+            <!-- <button (click)="add(item)">Add To Cart</button>  -->
+        </div>
+    </div>
+    </div>
+  </div> 
+  </div>
+  <ng-template #noItems>
+    <p >No items in the wishlist.</p>
+  </ng-template>

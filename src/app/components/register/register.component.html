@@ -1,0 +1,21 @@
+<!-- <form (ngSubmit)="Send()"> -->
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input type="text" class="form-control" [(ngModel)]="userName">
+</div>
+<div class="mb-3">
+    <label class="form-label">Phone Number</label>
+    <input type="text" class="form-control"  [(ngModel)]="PhoneNumber">
+</div>
+<div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input type="email" class="form-control"  [(ngModel)]="Email">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+</div>
+<div class="mb-3">
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control"  [(ngModel)]="Password">
+</div>
+
+<button type="button" (click)="register()" class="btn btn-primary">Submit</button>
+<!-- </form> -->
